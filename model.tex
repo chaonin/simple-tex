@@ -1,0 +1,49 @@
+\documentclass[conference,a4paper,onecolumn]{IEEEtran}
+\usepackage{fontspec}
+\usepackage[fleqn]{amsmath}
+\usepackage{graphicx}
+\usepackage{footnote}
+\makesavenoteenv{tabular}
+\usepackage{booktabs}
+\usepackage{amssymb}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage[vlined, ruled, linesnumbered]{algorithm2e}
+\usepackage{multirow}
+
+\ifCLASSINFOpdf
+\else
+\fi
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+\begin{document}
+
+\begin{equation}
+f_i = BE_i^{spd} Pr_{spd} + \sum \limits_{j=1} ^{N} BE_{ij} Pr_{pd} - \sum \limits_{j=1} ^{N} SE_{ij} (Pr_{pd} + Pr_{ij}).
+\end{equation}
+\begin{flalign}
+\nonumber F = \sum \limits_{i=1} ^N f_i = \sum \limits_{i=1}^N BE_i^{spd} Pr_{spd} + \sum \limits_{i=1}^N \sum \limits_{j=1} ^{N} BE_{ij} Pr_{pd} - \sum \limits_{i=1}^N\sum \limits_{j=1} ^{N} SE_{ij} (Pr_{pd} + Pr_{ij}) \\
+\nonumber = \sum \limits_{i=1}^N BE_i^{spd} Pr_{spd} - \sum \limits_{i=1}^N\sum \limits_{j=1} ^{N} SE_{ij} Pr_{ij}\\
+ = \sum \limits_{i=1}^N BE_i^{spd} Pr_{spd} - \sum \limits_{i=1}^N\sum \limits_{j=1} ^{N} BE_{ij} Pr_{ij}\\
+\nonumber subject\ to: \sum \limits_{i=1}^N BE_i^{spd} + \sum \limits_{i=1}^N\sum \limits_{j=1} ^{N} BE_{ij} = E_0\\
+\sum \limits_{j=1}^N SE_{ij} \le (RE_i + PE_i) - CE_i^{s}\\
+\sum \limits_{i=1}^N \sum \limits_{j=1}^N SE_{ij} \le \sum \limits_{i=1}^N (RE_i + PE_i) - CE_i^{s}
+\end{flalign}
+Equation (2) would have:
+\begin{flalign}
+\nonumber F = ( E_0 -\sum \limits_{i=1}^N\sum \limits_{j=1} ^{N} BE_{ij}) Pr_{spd} - \sum \limits_{i=1}^N\sum \limits_{j=1} ^{N} BE_{ij} Pr_{ij}\\
+=   E_0 Pr_{spd} - \sum \limits_{i=1}^N\sum \limits_{j=1} ^{N} BE_{ij} (Pr_{spd} + Pr_{ij}) 
+\end{flalign}
+Therefore:
+\begin{flalign}
+Min\ F = Min\ ( E_0 Pr_{spd} - \sum \limits_{i=1}^N\sum \limits_{j=1} ^{N} BE_{ij} (Pr_{spd} + Pr_{ij}) )\\
+\nonumber =  E_0 Pr_{spd} - Max\ \sum \limits_{i=1}^N\sum \limits_{j=1} ^{N} BE_{ij} (Pr_{spd} + Pr_{ij})\\
+=  E_0 Pr_{spd} - Max\ \sum \limits_{j=1}^N\sum \limits_{i=1} ^{N} SE_{ji} (Pr_{spd} + Pr_{ji})
+\end{flalign}
+According to (4), equation (7) would have a mininum if and only if:
+\begin{flalign}
+ \sum  \limits_{i=1}^N \sum  \limits_{j=1}^N SE_{ij} = \sum \limits_{i=1}^N (RE_i + PE_i) - CE_i^{s}
+\end{flalign}
+\end{document}
